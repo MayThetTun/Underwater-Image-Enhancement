@@ -1,0 +1,37 @@
+In Shallow-UWNet and the proposed method;
+Firstly, create account in wandb.ai Weights and Biases (W&B) which is a Track machine learning work.
+TRAIN_DATABASE = EUVP
+TEST_DATABASE = EU_Dark, UFO, UIEB
+
+(1) Model Training
+==================
+python OrgTrain.py
+
+***
+To produce the snapshot checkpoint data, employ the folder designated as snapshots_folder.
+input_images_path and label_images_path refer to the underwater images and their respective ground truth images for training data.
+For validation data, test_images_path and GTr_test_images_path represent the underwater images and their corresponding ground truth images,
+while output_images_path denotes the resulting output for the validation images.
+***
+
+(2) Model Testing
+=================
+python OrgTest.py
+***
+The snapshot_path has been specifically designated for test images.
+The test_images_path and label_images_path parameters are set to ./data/TEST_DATABASE/input and
+./data/TEST_DATABASE/label, respectively.
+Ensure to specify the output_images_path folder; for instance, ./results/OUPUT_IMAGES.
+***
+
+(3) Compute the number of parameters
+====================================
+python compute_params.py
+
+** Modify the file names for DLPFTest, BLPFTest, GLPFTest, and SLPFTest to different requirements.
+
+
+(4) Dataset information
+========================
+Training dataset = EUVP (Train and Validation dataset)
+Testing datasets = EU_Dark, UFO, UIEB
